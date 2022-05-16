@@ -1,24 +1,60 @@
-.error{
+.error {
     color: red;
     font-weight: bold;
 }
 
-.counterValue{
-    border: 2px solid;
-    padding:10px;
+.windowBlock {
+    border: 3px solid #9155f2;
     border-radius: 5px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 10px;
 }
 
-.inputBlock{
-    border: 2px solid;
-    padding:10px;
+.maxValue{
+    color: red;
+}
+
+.counterValue {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: 3px solid #9155f2;
     border-radius: 5px;
+    font-size: 35px;
+    font-weight: bold;
+    height: 110px;
+}
+.counterValue div{
+    width: 280px;
+    text-align: center;
 
 }
 
-.setButton{
+.buttonBlock {
     margin-top: 5px;
-    border: 2px solid;
-    padding:10px;
+    border: 3px solid #9155f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.buttonJust {
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.inputBlock {
+    border: 3px solid #9155f2;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.setButton {
+    margin-top: 5px;
+    border: 3px solid #9155f2;
+    padding: 10px;
     border-radius: 5px;
 }

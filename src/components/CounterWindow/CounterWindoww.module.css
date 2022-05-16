@@ -1,0 +1,24 @@
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.counterValue{
+    border: 2px solid;
+    padding:10px;
+    border-radius: 5px;
+}
+
+.inputBlock{
+    border: 2px solid;
+    padding:10px;
+    border-radius: 5px;
+
+}
+
+.setButton{
+    margin-top: 5px;
+    border: 2px solid;
+    padding:10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,72 @@
+import React, {useState} from 'react';
+import {AppStateType} from "../../bll/store";
+import {incCountAC, setMaxCountAC, setStartCountAC, setValueAC} from "../../bll/counter-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {CounterSetting} from "../CounterSetting/CounterSetting";
+import {CounterWindow} from "../CounterResult/CounterResult";
+
+export const CounterContainer = () => {
+    // let [count] = useState(0)
+    let count = useSelector<AppStateType, number>(store => store.counter.count)
+    let startValue = useSelector<AppStateType, number>(store => store.counter.startValue)
+    let maxValue = useSelector<AppStateType, number>(store => store.counter.maxValue)
+    const dispatch = useDispatch()
+    let [help, setHelp] = useState(false)
+    let [error,setError] = useState(false)
+
+
+    const setValue = () => {
+        setHelp(false)
+        // setCount(startValue)
+        dispatch(setValueAC())
+    }
+
+
+
+    const maxValueChange = (str: string) => {
+
+        setHelp(true)
+        // setMaxValue(Number(str))
+        dispatch(setMaxCountAC(JSON.parse(str)))
+    }
+
+    const startValueChange = (str: string) => {
+        setHelp(true)
+        // setStartValue(Number(str))
+        dispatch(setStartCountAC(Number(str)))
+    }
+
+    const incCount = () => {
+        // setCount(count + 1)
+        dispatch(incCountAC())
+    }
+    const resetCount = () => {
+        // setCount(startValue)
+        dispatch(setValueAC())
+    }
+
+
+    return (
+        <div >
+            <CounterSetting
+                setHelp={setHelp}
+                setError={setError}
+                startValue={startValue}
+                maxValueChange={maxValueChange}
+                startValueChange={startValueChange}
+                setValue={setValue}
+                maxValue={maxValue}
+                error={error}
+            />
+            {/* eslint-disable-next-line react/jsx-no-undef */}
+            <CounterWindow
+                startValue={startValue}
+                incCount={incCount}
+                resetCount={resetCount}
+                help={help}
+                maxValue={maxValue}
+                count={count}
+            />
+        </div>
+    );
+};

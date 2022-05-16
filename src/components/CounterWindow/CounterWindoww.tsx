@@ -47,7 +47,7 @@ export const CounterWindow: React.FC<PropsType> = (
                 <div className={s.buttonJust}>
                     <span><Button size="small" variant="contained" disabled={count >= maxValue || disabledButtonWindow}
                                   onClick={incHandler}>inc</Button></span>
-                    <span><Button size="small" variant="contained" disabled={count <= startValue || disabledButtonWindow}
+                    <span><Button color={"error"} size="small" variant="contained" disabled={count <= startValue || disabledButtonWindow}
                                   onClick={resetHandler}>reset</Button></span>
                 </div>
             </div>

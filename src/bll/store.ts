@@ -1,5 +1,6 @@
 import {counterReducer} from "./counter-reducer";
-import {combineReducers, legacy_createStore} from "redux";
+import { combineReducers, createStore} from "redux";
+import {loadState, saveState} from "../utils/localstorage-utils";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
@@ -8,6 +9,12 @@ export const rootReducer = combineReducers({
 })
 
 
-export const store = legacy_createStore(rootReducer)
 
-// export type AppStoreType = typeof store
+export const store = createStore(rootReducer, loadState())
+
+export type AppStoreType = typeof store
+
+
+store.subscribe(() => {
+    saveState({counter:store.getState().counter})
+})
